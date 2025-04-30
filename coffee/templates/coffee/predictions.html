@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enter Farm & Environmental Info</title>
+    <link rel="stylesheet" href="{% static 'css/farm.css' %}">
+</head>
+<body>
+    <div id="user-info" style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; max-width: 300px; margin: 20px auto; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); text-align: left; background-color: #f9f9f9;">
+        <p style="font-size: 18px; font-weight: bold; color: #333;">Welcome , <strong>{{ user.username }}</strong>  !
+        Hope You will enjoy !!</p>
+    </div>
+    <div id="farm-form-container">
+        <h1 id="farm-form-title">Enter Farm & Environmental Info</h1>
+        <form id="farm-form" method="post" action="{% url 'predict_yield' %}">
+            {% csrf_token %}
+            <label>Farmer ID:</label>
+            <input type="text" name="farmer_id" placeholder="e.g. F12345">
+
+            <label for="coffee-variety">Coffee Variety:</label>
+            <select id="coffee-variety" name="coffee_variety">
+                <option value="">-- Select Variety --</option>
+                <option value="Ruiru 11">Ruiru 11</option>
+                <option value="Batian">Batian</option>
+                <option value="SL24">SL24</option>
+                <option value="SL38">SL38</option>
+            </select>
+
+            <label for="fertilizer-amount">Fertilizer Amount (kg):</label>
+            <input type="number" id="fertilizer-amount" name="fertilizer_amount" placeholder="e.g. 50" step="0.1">
+
+            <label for="land-hectares">Hectares of Land:</label>
+            <input type="number" id="land-hectares" name="hectares_of_land" placeholder="e.g. 2.5" step="0.1">
+
+            <label for="yield-last-year">Previous Year’s Yield (kg):</label>
+            <input type="number" id="yield-last-year" name="previous_yield" placeholder="e.g. 400">
+
+            <label for="buds-present">Presence of Buds:</label>
+            <select id="buds-present" name="presence_of_buds">
+                <option value="">-- Select --</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="weather-condition">Current Weather Condition:</label>
+            <input type="text" id="weather-condition" name="weather_condition" placeholder="e.g. Sunny, Cloudy, Rainy">
+
+            <button type="submit" id="predict-button">Predict Yield</button>
+        </form>
+    </div>
+    <script src="{% static 'js/farm_form.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const messages = document.querySelectorAll('.messages .message');
+            messages.forEach(message => {
+                const dialog = document.createElement('dialog');
+                dialog.textContent = message.textContent;
+                document.body.appendChild(dialog);
+                dialog.showModal();
+
+                setTimeout(() => {
+                    dialog.close();
+                    dialog.remove();
+                }, 3000); // Close and remove the dialog after 3 seconds
+            });
+        });
+    </script>
+</body>
+</html>

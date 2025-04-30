@@ -1,0 +1,67 @@
+<!-- templates/results.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yield Prediction Results</title>
+    <link rel="stylesheet" href="{% static 'css/results.css' %}">
+</head>
+<body>
+    <div class="results-container">
+        <h1>Prediction Summary</h1>
+        
+        <div class="prediction-details">
+            <p>Predicted Yield: <span class="highlight">{{ predicted_yield }} Kgs</span></p>
+            <p>Confidence Level: <span class="highlight">{{ confidence_level }}%</span></p>
+        </div>
+        
+        <div class="graph-placeholder">
+            <canvas id="yieldPredictionChart" width="400" height="200"></canvas>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            const ctx = document.getElementById('yieldPredictionChart').getContext('2d');
+            const yieldPredictionChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Predicted Yield', 'Previous yield'],
+                    datasets: [{
+                        label: 'Prediction Data',
+                        data: [{{ predicted_yield }}, {{ previous_yield }}],
+                        backgroundColor: [
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
+        
+        <div class="divider"></div>
+        
+        <div class="action-buttons">
+            <a href="#" class="btn download-btn">Download Report</a>
+            <a href="#" class="btn feedback-btn">Provide Feedback</a>
+        </div>
+        
+        <div class="back-link">
+            <a href="{% url 'predictions' %}">-- Back to Input Page</a>
+        </div>
+    </div>
+</body>
+</html>

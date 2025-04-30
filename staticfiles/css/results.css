@@ -1,0 +1,105 @@
+/* static/css/results.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.results-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 80%;
+    max-width: 600px;
+}
+
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.prediction-details {
+    margin-bottom: 25px;
+}
+
+.prediction-details p {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #555;
+}
+
+.highlight {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.graph-placeholder {
+    background-color: #f9f9f9;
+    border: 1px dashed #ccc;
+    padding: 60px 20px;
+    text-align: center;
+    color: #777;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+.divider {
+    height: 1px;
+    background-color: #eee;
+    margin: 25px 0;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.download-btn {
+    background-color: #3498db;
+    color: white;
+}
+
+.download-btn:hover {
+    background-color: #2980b9;
+}
+
+.feedback-btn {
+    background-color: #f1f1f1;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.feedback-btn:hover {
+    background-color: #e1e1e1;
+}
+
+.back-link {
+    text-align: center;
+}
+
+.back-link a {
+    color: #7f8c8d;
+    text-decoration: none;
+}
+
+.back-link a:hover {
+    color: #34495e;
+    text-decoration: underline;
+}

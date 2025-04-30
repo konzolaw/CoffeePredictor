@@ -1,0 +1,98 @@
+
+/* Full-page section background and layout */
+#prediction {
+    min-height: 150vh;
+    width: 100%;
+    background-color: #6fd9ff;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+  }
+  
+  /* Form container with top and bottom margin */
+  #farm-form-container {
+    background: rgb(239, 235, 235);
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(193, 147, 147, 0.1);
+    box-sizing: border-box;
+    margin: 40px auto; /* Top and bottom margin added here */
+  }
+  
+  /* Title */
+  #farm-form-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 30px;
+    margin-top: 70px; /* Added top margin for spacing */
+  }
+  
+  /* Label styling */
+  #farm-form-container label {
+    display: block;
+    margin-bottom: 6px;
+    margin-top: 20px;
+    font-weight: 600;
+    color: black;
+  }
+  
+  /* Inputs, selects, textareas */
+  #farm-form-container input,
+  #farm-form-container select,
+  #farm-form-container textarea {
+    width: 500px;
+    padding: 12px ;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    font-size: 15px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    margin-bottom: 12px;
+    transition: border-color 0.3s ease;
+  }
+  
+  #farm-form-container input:focus,
+  #farm-form-container select:focus,
+  #farm-form-container textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    background-color: #fff;
+  }
+  
+  /* Predict button */
+  #predict-button {
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    justify-items: center;
+    align-items: center;
+  }
+  
+  #predict-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    #farm-form-container {
+      padding: 30px 20px;
+      margin: 30px auto;
+    }
+  }
+  
