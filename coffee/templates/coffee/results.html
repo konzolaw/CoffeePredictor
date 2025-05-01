@@ -56,12 +56,45 @@
         
         <div class="action-buttons">
             <a href="#" class="btn download-btn">Download Report</a>
-            <a href="#" class="btn feedback-btn">Provide Feedback</a>
+            <form action="{% url 'send_feedback' %}" method="POST">
+                {% csrf_token %}
+                <textarea name="feedback" placeholder="Enter your feedback here..." required></textarea>
+                <button type="submit" class="btn feedback-btn">Send Feedback</button>
+            </form>
         </div>
         
         <div class="back-link">
             <a href="{% url 'predictions' %}">-- Back to Input Page</a>
         </div>
+
+
+
+
+
+
     </div>
 </body>
 </html>
+
+
+
+
+<script>
+    document.querySelector('.download-btn').addEventListener('click', function() {
+        fetch('/download-report/', {
+            method: 'GET',
+        })
+        .then(response => response.blob())
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = 'prediction_report.txt';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+        })
+        .catch(error => console.error('Error downloading report:', error));
+    });
+</script>

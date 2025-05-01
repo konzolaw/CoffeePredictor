@@ -1,5 +1,6 @@
 from django.urls import path # type: ignore
 from . import views
+from coffee.views import download_report, send_feedback
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -12,7 +13,8 @@ urlpatterns = [
     path('predict/', views.predict_yield, name='predict_yield'),
     path('save-farm-info/', views.save_farm_info, name='save_farm_info'),
     path('res/', views.submit_farm_info, name='submit_farm_info'),
-    
+     path('download-report/', download_report, name='download_report'),
+    path('send-feedback/', send_feedback, name='send_feedback'),
 ]
 
 

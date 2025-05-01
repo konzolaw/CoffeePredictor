@@ -3,7 +3,7 @@
 #prediction {
     min-height: 150vh;
     width: 100%;
-    background-color: #6fd9ff;
+    background-color: #051d26;
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -13,12 +13,12 @@
   
   /* Form container with top and bottom margin */
   #farm-form-container {
-    background: rgb(239, 235, 235);
+    background: rgb(255, 255, 255);
     width: 100%;
     max-width: 600px;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(193, 147, 147, 0.1);
+    box-shadow: 0 8px 20px rgba(14, 1, 1, 0.1);
     box-sizing: border-box;
     margin: 40px auto; /* Top and bottom margin added here */
   }
@@ -26,9 +26,9 @@
   /* Title */
   #farm-form-title {
     text-align: center;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
-    color: black;
+    color: blue;
     margin-bottom: 30px;
     margin-top: 70px; /* Added top margin for spacing */
   }
