@@ -418,7 +418,7 @@ def send_feedback(request):
                     subject='User Feedback',
                     message=feedback_message,
                     from_email=request.user.email,
-                    recipient_list=[config('EMAIL_HOST_USER')],
+                    # recipient_list=[config('EMAIL_HOST_USER')],
                     fail_silently=False,
                 )
                 messages.success(request, "Feedback sent successfully.")
